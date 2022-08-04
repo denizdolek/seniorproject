@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Timetable Manager</title>
+ <link rel="stylesheet" href="Darkside.css">
+  <script type="text/javascript">
+function BringAccountInfo(){
+  
+  var username=sessionStorage.username;
+    var password=sessionStorage.password;
+  
+    var xmlhttp;
+  
+      if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp = new XMLHttpRequest();
+      } else {    // IE6, IE5
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange = function() {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("rightside").innerHTML=xmlhttp.responseText;
+           
+           
+          }
+      }
+     xmlhttp.open("GET","bringaccountinfoServlet?username="+username+"&password="+password,true);
+     xmlhttp.send(); 
+ } 
+ function Update(){
+  var username=document.getElementById("updateusername").value;
+  var oldpassword=document.getElementById("updateoldpassword").value;
+  var newpassword=document.getElementById("updatenewpassword").value;
+  var name=document.getElementById("updatename").value;
+  var surname=document.getElementById("updatesurname").value;
+  var email=document.getElementById("updateemail").value
+  var department=document.getElementById("updatedepartment").value
+
+  if(oldpassword!=sessionStorage.password){
+   document.getElementById("rightside").innerHTML="<p>Your current password and old password does not match</p>";
+  }else{
+   var xmlhttp;
+   
+       if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+           xmlhttp = new XMLHttpRequest();
+       } else {    // IE6, IE5
+           xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+       }
+       xmlhttp.onreadystatechange = function() {
+           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if(xmlhttp.responseText!=0){
+            sessionStorage.username=xmlhttp.responseText
+             document.getElementById("rightside").innerHTML="";
+             alert("Update is succesful, you have to login again. ")
+             window.location="index.html";
+            }else {
+             document.getElementById("rightside").innerHTML="Update process failed, please try again later" ;
+            }
+            
+           }
+       }
+      xmlhttp.open("GET","updateaccountServlet?oldusername="+sessionStorage.username+"&username="+username+"&oldpassword="+oldpassword+
+        "&newpassword="+newpassword+
+        "&name="+name+
+        "&surname="+surname+
+        "&email="+email+
+        "&department="+department
+        ,true);
+      xmlhttp.send(); 
+  }
+ }
+
+ </script>
+</head>
+<body onload="login()">
+
+<header>
+<h1>TIMETABLE MANAGER</h1><h2>Fast & Easy Way to Generate Timetable </h2>
+</header>
+ <selection>
+ <buttons class="hvr-grow-shadow">View Table</buttons>
+ <buttons class="hvr-grow-shadow">View Data</buttons>
+ <buttons class="hvr-grow-shadow" onclick="BringAccountInfo()">Account Management</buttons>
+ 
+ </selection>
+ <leftselection>
+  
+ 
+ </leftselection>
+ <rightside id="rightside">
+ 
+ </rightsiden>
+</body>
+</html>

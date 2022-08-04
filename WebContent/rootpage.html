@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+<META http-equiv=content-type content=text/html;charset=iso-8859-9>
+<META http-equiv=content-type content=text/html;charset=windows-1254>
+<META http-equiv=content-type content=text/html;charset=x-mac-turkish>
+<title>Timetable Manager</title>
+ <link rel="stylesheet" href="Darkside.css">
+ <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+ <script>
+ 
+	
+ 
+ function login() {
+	 if(sessionStorage.authority != 1){
+	   	 window.location="index.html";
+	  }else{
+		 
+		  	var username=sessionStorage.username;
+		  	var password=sessionStorage.password;
+		  
+		  	var xmlhttp;
+			
+		     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+		         xmlhttp = new XMLHttpRequest();
+		     } else {    // IE6, IE5
+		         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		     }
+		     xmlhttp.onreadystatechange = function() {
+		         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		         	
+		        	 if(xmlhttp.responseText!=2){
+		        		 window.location="index.html";
+		        	 }else{
+		        	
+		        	 }  
+		         }
+		     }
+		    
+		    xmlhttp.open("GET","loginServlet?username="+username+"&password="+password,true);
+		    xmlhttp.send(); 
+		  
+	  }
+ }
+	function BringAccountInfo(){
+		
+		var username=sessionStorage.username;
+	  	var password=sessionStorage.password;
+		
+	  	var xmlhttp;
+		
+	     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+	         xmlhttp = new XMLHttpRequest();
+	     } else {    // IE6, IE5
+	         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	     }
+	     xmlhttp.onreadystatechange = function() {
+	         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	         		document.getElementById("rightside").innerHTML=xmlhttp.responseText;
+	         		document.getElementById("DefaultAdvanced").innerHTML="";
+	         		document.getElementById("loverrightside").innerHTML="";
+	         		document.getElementById("DefaultAdvancedDetail").innerHTML="";
+	         		document.getElementById("leftside").innerHTML="";
+	        	 
+	         }
+	     }
+	    xmlhttp.open("GET","bringaccountinfoServlet?username="+username+"&password="+password,true);
+	    xmlhttp.send(); 
+	    
+	} 
+	function Update(){
+		var username=document.getElementById("updateusername").value;
+		var oldpassword=document.getElementById("updateoldpassword").value;
+		var newpassword=document.getElementById("updatenewpassword").value;
+		var name=document.getElementById("updatename").value;
+		var surname=document.getElementById("updatesurname").value;
+		var email=document.getElementById("updateemail").value
+		var department=document.getElementById("updatedepartment").value
+
+		if(oldpassword!=sessionStorage.password){
+			document.getElementById("DefaultAdvanced").innerHTML="";
+			document.getElementById("loverrightside").innerHTML=""
+			document.getElementById("rightside").innerHTML="<p>Your current password and old password does not match</p>";
+		}else{
+			var xmlhttp;
+			
+		     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+		         xmlhttp = new XMLHttpRequest();
+		     } else {    // IE6, IE5
+		         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		     }
+		     xmlhttp.onreadystatechange = function() {
+		         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		        	 if(xmlhttp.responseText!=0){
+		        	 sessionStorage.username=xmlhttp.responseText
+		         		document.getElementById("rightside").innerHTML="";
+		        	 document.getElementById("leftside").innerHTML="";
+	        		 document.getElementById("loverrightside").innerHTML="";
+		        	 	alert("Update is succesful, you have to login again. ")
+		        	 	window.location="index.html";
+		        	 }else {
+		        		 document.getElementById("DefaultAdvanced").innerHTML="";
+		        		 document.getElementById("leftside").innerHTML="";
+		        		 document.getElementById("loverrightside").innerHTML="";
+		        		 document.getElementById("DefaultAdvancedDetail").innerHTML="";
+		        		 document.getElementById("rightside").innerHTML="Update process failed, please try again later" ;
+		        	 }
+		        	 
+		         }
+		     }
+		    xmlhttp.open("GET","updateaccountServlet?oldusername="+sessionStorage.username+"&username="+username+"&oldpassword="+oldpassword+
+		    		"&newpassword="+newpassword+
+		    		"&name="+name+
+		    		"&surname="+surname+
+		    		"&email="+email+
+		    		"&department="+department
+		    		,true);
+		    xmlhttp.send(); 
+		    
+		}
+	}
+function createTimetable(){
+		
+		
+	  	var xmlhttp;
+		
+	     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+	         xmlhttp = new XMLHttpRequest();
+	     } else {    // IE6, IE5
+	         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	     }
+	     xmlhttp.onreadystatechange = function() {
+	         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	        	 document.getElementById("DefaultAdvanced").innerHTML="";
+	        	 document.getElementById("DefaultAdvancedDetail").innerHTML="";
+	        	 document.getElementById("loverrightside").innerHTML="";
+	         	document.getElementById("rightside").innerHTML=xmlhttp.responseText;
+	         		
+	        	 
+	        	 
+	         }
+	     }
+	    xmlhttp.open("GET","CreateTimetableServlet",true);
+	    xmlhttp.send(); 
+	    
+	}
+	function bringdata(){
+		
+		
+	  	var xmlhttp;
+		
+	     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+	         xmlhttp = new XMLHttpRequest();
+	     } else {    // IE6, IE5
+	         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	     }
+	     xmlhttp.onreadystatechange = function() {
+	         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	        	 document.getElementById("DefaultAdvanced").innerHTML="";
+	        	 document.getElementById("loverrightside").innerHTML="";
+	        	 document.getElementById("DefaultAdvancedDetail").innerHTML="";
+	         	document.getElementById("rightside").innerHTML=xmlhttp.responseText;
+	        	 
+	        	 
+	         }
+	     }
+	    xmlhttp.open("GET","bringdataServlet",true);
+	    xmlhttp.send(); 
+	    
+	}
+	function setrangeselection1()
+	{
+		var value=document.getElementById("multiplesections").value;
+		
+		document.getElementById("rangeselectionmultiple").value=value;
+		
+	}
+	function bringsitutation()
+	{
+		
+	}
+	function executeGeneticAlgorithm()
+	{
+		var xmlhttp;
+		
+	     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+	         xmlhttp = new XMLHttpRequest();
+	     } else {    // IE6, IE5
+	         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	     }
+	     xmlhttp.onreadystatechange = function() {
+	    	 if(xmlhttp.readyState != 4)
+    		 {
+    		 	document.getElementById("DefaultAdvanced").innerHTML="";
+        	 	document.getElementById("loverrightside").innerHTML="";
+         		document.getElementById("rightside").innerHTML="Processing Genetic Algorithm";
+
+    		 }else if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	        	 document.getElementById("DefaultAdvanced").innerHTML="";
+	        	 	document.getElementById("loverrightside").innerHTML="";
+	         		document.getElementById("rightside").innerHTML="Genetic Algorithm Request has been sent. This may take a while ..";
+	         		bringsitutation();
+	        	 
+	         }
+	     }
+	    xmlhttp.open("GET","ExecuteGeneticAlgorithmServlet",true);
+	    xmlhttp.send(); 
+	    
+		
+	}
+	function DefaultGenerationSubmit()
+	{	
+		
+		var numberofdepartments=document.getElementById("numberofdepartments").value;
+		var departmentcourse = [];
+		var departmentcourseall="";
+		var i,y;
+		
+		for(i=0;i<numberofdepartments;i++)
+			{
+			departmentcourse[i]="";
+			for(y=0;y<5;y++)
+				{
+				    var id=""+y+""+i;
+					if(y!=4)
+						{
+						departmentcourse[i]= departmentcourse[i]+""+document.getElementById(id).value+"/";
+						}
+					else{
+						departmentcourse[i]= departmentcourse[i]+""+document.getElementById(id).value+"_";
+						}
+				}
+			departmentcourseall=departmentcourseall+""+departmentcourse[i];
+			}
+		
+		
+		var numberoflecturers=document.getElementById("numberoflecturers").value;
+		var capacity20=document.getElementById("capacity20").value;
+		var capacity45=document.getElementById("capacity45").value;
+		var capacity80=document.getElementById("capacity80").value;
+		var typelab=document.getElementById("typelab").value;
+		
+		var xmlhttp;
+		
+	     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+	         xmlhttp = new XMLHttpRequest();
+	     } else {    // IE6, IE5
+	         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	     }
+	     xmlhttp.onreadystatechange = function() {
+	    	 if(xmlhttp.readyState != 4)
+    		 {
+        	 	document.getElementById("loverrightside").innerHTML="";
+         		document.getElementById("rightside").innerHTML="Processing ....";
+         		
+    		 }
+	    	 else if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	        	 	document.getElementById("loverrightside").innerHTML="";
+	         		document.getElementById("rightside").innerHTML="Generation is complete...";
+	         		
+	        	 
+	         }
+	     }
+	    xmlhttp.open("GET","DataGenServlet?numberofdepartments="+numberofdepartments+"&numberoflecturers="+numberoflecturers+"&capacity20="+
+	    		capacity20+"&capacity45="+
+	    		capacity45+"&capacity80="+
+	    		capacity80+"&typelab="+
+	    		typelab+"&departmentcourseall="+
+	    		departmentcourseall,true);
+	    xmlhttp.send(); 
+	    
+	}
+	function DepartmentTableCreator()
+	{
+		var numberofdepartments=document.getElementById("numberofdepartments").value;
+		var i,j,k;
+		
+		var innerhtmlstring="<table class=\"style-4\"><tr><th></th>";
+		
+		for(i=0;i<numberofdepartments;i++)
+			{
+			var department="Department "+i;
+			innerhtmlstring=innerhtmlstring+"<th>"+department+"</th>";
+			}
+		innerhtmlstring=innerhtmlstring+"</tr>";
+		
+		for(i=0;i<4;i++)
+			{
+			var x=i+1;
+			var year= "Year : "+x+" Courses";
+			innerhtmlstring=innerhtmlstring+"<tr><td>"+year+"</td>";
+			for(j=0;j<numberofdepartments;j++)
+				{
+				var id=""+i+""+j;
+				innerhtmlstring=innerhtmlstring+"<td><input type=\"number\"  id="+id+"></td>";
+				}
+			innerhtmlstring=innerhtmlstring+"</tr>";
+			}
+		for(i=0;i<1;i++)
+		{
+		innerhtmlstring=innerhtmlstring+"<tr><td>Elective Courses</td>";
+		for(j=0;j<numberofdepartments;j++)
+			{
+			var id="4"+j;
+			innerhtmlstring=innerhtmlstring+"<td><input type=\"number\"  id="+id+"></td>";
+			}
+		innerhtmlstring=innerhtmlstring+"</tr>";
+		}
+		innerhtmlstring=innerhtmlstring+"</table>";
+		
+		document.getElementById("departmentcourseinfotaker").innerHTML=innerhtmlstring;
+		
+	}
+	function DefaultGeneration()
+	{
+		document.getElementById("loverrightside").innerHTML="";
+ 		document.getElementById("rightside").innerHTML="";
+		document.getElementById("DefaultAdvancedDetail").innerHTML="<roomlecturerdepartmentmiktar><container class=\"style-4\"><p>Number of Lecturers</p><input type=\"number\"  id=\"numberoflecturers\"></container></roomlecturerdepartmentmiktar>"+
+		"<roomlecturerdepartmentmiktar><container class=\"style-4\"><p>Number of Departments</p><input type=\"number\"  id=\"numberofdepartments\" onchange=\"DepartmentTableCreator()\"></container></roomlecturerdepartmentmiktar>"+
+		"<roomtypeinfotaker><table class=\"style-4\">"+
+		"<tr>"+
+		"<th>Room with =></th>"+
+		"<th>Capacity : 20</th>"+
+		"<th>Capacity : 45</th>"+
+		"<th>Capacity : 80</th>"+
+		"<th>Type : Laboratory</th>"+
+		"</tr>"+
+		"<tr>"+
+		"<td>Quantity</td>"+
+		"<td><input type=\"number\"  id=\"capacity20\"></td>"+
+		"<td><input type=\"number\"  id=\"capacity45\"></td>"+
+		"<td><input type=\"number\"  id=\"capacity80\"></td>"+
+		"<td><input type=\"number\"  id=\"typelab\"></td>"+
+		"</tr></table>"+
+		"</roomtypeinfotaker>"+
+		"<departmentcourseinfotaker id=\"departmentcourseinfotaker\"></departmentcourseinfotaker>"+
+		"<defaultgenerationsubmit class=\"hvr-grow-shadow\" onclick=\"DefaultGenerationSubmit()\">Submit<defaultgenerationsubmit>";
+		
+		
+		
+	}
+	function bringGAresult()
+	{
+		alert("ga results are incoming!!!");
+		
+		var lecturer = document.getElementById("lect").value;
+		var room= document.getElementById("room").value;
+		var department = document.getElementById("dept").value;
+		var year = document.getElementById("year").value;
+		
+		if(year==="all" || department==="all")
+			{
+			alert("Year or department value must be specified..");
+			}
+		else
+			{
+			var xmlhttp;
+			
+		     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+		         xmlhttp = new XMLHttpRequest();
+		     } else {    // IE6, IE5
+		         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		     }
+		     xmlhttp.onreadystatechange = function() {
+		         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		         		document.getElementById("loverrightside").innerHTML=xmlhttp.responseText;
+		        	 
+		        	 //"BringresultServlet?lecturer="+lecturer+"&room="+room+"&department="+department+"&year="year
+		         }
+		     }
+		     xmlhttp.open("GET","BringresultServlet?lecturer="+lecturer+"&room="+room+"&department="+department+"&year="+year,true);
+		    xmlhttp.send(); 
+			}
+
+	}
+	function Managetimetable()
+	{
+		
+		var xmlhttp;
+		
+	     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+	         xmlhttp = new XMLHttpRequest();
+	     } else {    // IE6, IE5
+	         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	     }
+	     xmlhttp.onreadystatechange = function() {
+	         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	         		document.getElementById("DefaultAdvancedDetail").innerHTML=xmlhttp.responseText;
+	         		document.getElementById("rightside").innerHTML="";
+	         		document.getElementById("loverrightside").innerHTML="";
+	         		document.getElementById("DefaultAdvanced").innerHTML="";
+	        	 
+	        	 
+	         }
+	     }
+	   xmlhttp.open("GET","ManageTimetableServlet",true);
+	    xmlhttp.send(); 
+	    
+	    
+	}
+	function AdvancedGeneration()
+	{
+		alert("Advanced Generation");
+		
+	}
+	
+	function ShowTimetableOptions()
+	{
+		document.getElementById("rightside").innerHTML="";
+		document.getElementById("DefaultAdvancedDetail").innerHTML="";
+		document.getElementById("loverrightside").innerHTML="";
+		document.getElementById("DefaultAdvanced").innerHTML="<buttondata class=\"hvr-grow-shadow\" onclick=\"DefaultGeneration()\">Default Generation</buttondata><buttondata class=\"hvr-grow-shadow\" onclick=\"AdvancedGeneration()\">Advanced Generation</buttondata>";
+		
+		
+	}
+	function BringDataManagement()
+	{	
+		document.getElementById("DefaultAdvanced").innerHTML="";
+		document.getElementById("DefaultAdvancedDetail").innerHTML="";
+		document.getElementById("loverrightside").innerHTML="";
+		document.getElementById("rightside").innerHTML="";
+		document.getElementById("leftside").innerHTML="<buttondata class=\"hvr-grow-shadow\" onclick=\"CreateDataArea()\">Create Data By Excel</buttondata>"+
+		"<buttondata class=\"hvr-grow-shadow\" onclick=\"DefaultGeneration()\" >Create Data Automatically</buttondata>"+
+		"<buttondata class=\"hvr-grow-shadow\" onclick=\"bringdata()\" >Manage Data</buttondata>";
+			
+	}
+	function BringTimetableManagement(){
+		document.getElementById("loverrightside").innerHTML="";
+		document.getElementById("DefaultAdvancedDetail").innerHTML="";
+		document.getElementById("DefaultAdvanced").innerHTML="";
+		document.getElementById("rightside").innerHTML="";
+		document.getElementById("leftside").innerHTML="<buttondata class=\"hvr-grow-shadow\" onclick=\"executeGeneticAlgorithm()\">Create Timetable</buttondata>"+
+			"<buttondata class=\"hvr-grow-shadow\" onclick=\"Managetimetable()\" >Manage Timetable</buttondata>";
+	}
+	function CreateDataArea(){
+		document.getElementById("DefaultAdvancedDetail").innerHTML="";
+		document.getElementById("DefaultAdvanced").innerHTML="";
+		document.getElementById("loverrightside").innerHTML="";
+		document.getElementById("rightside").innerHTML="<lgn class=\"style-4\">"+
+		"<form action=\"uploadcoursesServlet\" method=\"post\" enctype=\"multipart/form-data\">"+
+		"<h2>Create Courses</h2>"+
+		"<input type=\"file\"  name=\"file\" />"+
+		"<input class=\"hvr-grow-shadow\" type=\"submit\" />"+
+		"</form>"+
+		"</lgn>"+
+		"<lgn class=\"style-4\">"+
+		"<form action=\"uploadlecturersServlet\" method=\"post\" enctype=\"multipart/form-data\">"+
+		"<h2>Create Lecturers</h2>"+
+		"<input type=\"file\" name=\"file2\" />"+
+		"<input type=\"submit\" class=\"hvr-grow-shadow\" />"+
+		"</form>"+
+		"</lgn>";
+	}
+	function Addpref()
+	{
+		var x = document.getElementById("prefselector");
+		
+		var day=document.getElementById("day").value;
+		var hour=document.getElementById("hour").value;
+		var hours=hour.split("+");
+		var value=day+"-"+hour;
+		
+		
+		if(value===x.value)
+			{
+			alert( "You can not add the value which exists!");
+			}
+		else
+			{
+			
+			if(x.value==="null")
+				{
+				x.remove(x.selectedIndex);
+				}
+			var dayhour="Day : "+day+" Between "+hours[0]+" and "+hours[1];
+			var select = document.getElementById("prefselector");
+			select.options[select.options.length] = new Option(dayhour, value);
+		    document.getElementById("day").value="";
+		    document.getElementById("hour").value="";
+			alert("Preference Added !!");
+			}
+		
+	
+	}
+	
+	function Deletepref()
+	{
+		var x = document.getElementById("prefselector");
+	    x.remove(x.selectedIndex);
+	    document.getElementById("day").value="";
+	    document.getElementById("hour").value="";
+	}
+	function bringpref(pref)
+	{
+		if(pref==="null")
+			{
+			
+			}
+		else{
+			var dayandhour = pref.split("-");
+			document.getElementById("day").value=dayandhour[0];
+			document.getElementById("hour").value=dayandhour[1];
+		}
+		
+	}
+	function bringlecturer(lecturerid){
+		
+		var xmlhttp;
+		
+	     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+	         xmlhttp = new XMLHttpRequest();
+	     } else {    // IE6, IE5
+	         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	     }
+	     xmlhttp.onreadystatechange = function() {
+	         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	         		document.getElementById("loverrightside").innerHTML=xmlhttp.responseText;
+	        	 
+	        	 
+	         }
+	     }
+	    xmlhttp.open("GET","bringlecturerServlet?lecturerid="+lecturerid,true);
+	    xmlhttp.send(); 
+		
+	}
+	function bringcourse(courseid){
+		
+		var xmlhttp;
+		
+	     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+	         xmlhttp = new XMLHttpRequest();
+	     } else {    // IE6, IE5
+	         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	     }
+	     xmlhttp.onreadystatechange = function() {
+	         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	         		document.getElementById("loverrightside").innerHTML=xmlhttp.responseText;
+	        	 
+	        	 
+	         }
+	     }
+	    xmlhttp.open("GET","bringcourseServlet?courseid="+courseid,true); 
+	    xmlhttp.send(); 
+		
+	}
+		
+	function Deletecourse(courseid){
+		if (confirm('Are you sure you want to delete this course ?')) {
+			var xmlhttp;
+			
+		     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+		         xmlhttp = new XMLHttpRequest();
+		     } else {    // IE6, IE5
+		         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		     }
+		     xmlhttp.onreadystatechange = function() {
+		         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		        	 	alert(xmlhttp.responseText);
+		        	 	bringdata();
+		         		
+		        	 
+		        	 
+		         }
+		     }
+		    xmlhttp.open("GET","deletecourseServlet?courseid="+courseid,true); 
+		    xmlhttp.send(); 
+		} 
+		
+	}
+	function updatecoursechanges(courseid){
+		if (confirm('Are you sure you want to update this course ?')) {
+			 var xmlhttp;
+			 var department=document.getElementById("department").value;
+			 var mandatory=document.getElementById("mandatory").value;
+			 var group=document.getElementById("group").value;
+			 var duration=document.getElementById("duration").value;
+			 var section=document.getElementById("section").value;
+			 var type=document.getElementById("type").value;
+			 var lecturer=document.getElementById("lecturer").value;
+			 var is_heavylec=document.getElementById("is_heavylec").value;
+			 
+			 
+			
+		     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+		         xmlhttp = new XMLHttpRequest();
+		     } else {    // IE6, IE5
+		         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		     }
+		     xmlhttp.onreadystatechange = function() {
+		         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		        	 alert(xmlhttp.responseText);
+		        	 	bringdata();
+		         		
+		        	 
+		        	 
+		         }
+		     }
+		    xmlhttp.open("GET","updatecourseServlet?courseid="+courseid+"&department="+department+"&mandatory="+mandatory+
+		    		"&group="+group+"&duration="+duration+
+		    		"&section="+section+"&type="+type+"&lecturer="+lecturer+"&is_heavylec="+is_heavylec,true); 
+		    xmlhttp.send();  
+		} 
+		
+		
+	}
+	
+	
+	function updatelecturerchanges(lecturerid){
+		if (confirm('Are you sure you want to update this lecturer ?')) {
+			 var xmlhttp;
+				var lecturersname=document.getElementById("lecturersname").value;
+				var preferences="";
+				var x = document.getElementById("prefselector");
+			    
+			    var i;
+			    for (i = 0; i < x.length; i++) {
+			        preferences = preferences + "/" + x.options[i].value;
+			    }
+			    alert(preferences);
+			    
+			 
+			 
+		     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+		         xmlhttp = new XMLHttpRequest();
+		     } else {    // IE6, IE5
+		         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		     }
+		     xmlhttp.onreadystatechange = function() {
+		         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		        	 alert(xmlhttp.responseText);
+		        	 	bringdata();
+		         		
+		        	 
+		        	 
+		         }
+		     }
+		    xmlhttp.open("GET","updatelecturerServlet?lecturerid="+lecturerid+"&lecturersname="+lecturersname+"&preferences="+preferences,true); 
+		    xmlhttp.send();
+
+		} 
+		
+	}
+	function deletelecturer(lecturerid){
+		
+		if (confirm('Are you sure you want to delete this course ?')) {
+			var xmlhttp;
+			
+		     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+		         xmlhttp = new XMLHttpRequest();
+		     } else {    // IE6, IE5
+		         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		     }
+		     xmlhttp.onreadystatechange = function() {
+		         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		        	 	alert(xmlhttp.responseText);
+		        	 	bringdata();
+		         		
+		        	 
+		        	 
+		         }
+		     }
+		    xmlhttp.open("GET","deletelecturerServlet?lecturerid="+lecturerid,true); 
+		    xmlhttp.send(); 
+		} 
+		
+	}
+
+ </script>
+
+</head>
+<body onload="login()">
+
+<header>
+<h1>TIMETABLE MANAGER</h1><h2>Fast & Easy Way to Generate Timetable </h2>
+</header>
+	<selection>
+	<buttons class="hvr-grow-shadow" onclick="BringDataManagement()">Data Management</buttons>
+	<buttons class="hvr-grow-shadow" onclick="BringTimetableManagement()">Timetable Management</buttons>
+	<buttons class="hvr-grow-shadow" onclick="BringAccountInfo()">Account Management</buttons>
+	<buttons class="hvr-grow-shadow">Authorisation Management</buttons>
+	</selection>
+	<leftselection id="leftside">
+	
+	
+	</leftselection>
+	<DefaultAdvanced id="DefaultAdvanced">
+	</DefaultAdvanced>
+	<DefaultAdvancedDetail id="DefaultAdvancedDetail">
+	</DefaultAdvancedDetail>
+	<rightside id="rightside">
+	
+	</rightside>
+	<rightside id="loverrightside">
+	
+	</rightside>
+	
+</body>
+</html>

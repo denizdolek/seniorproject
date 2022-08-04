@@ -1,0 +1,707 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext);
+body {
+	background:url('http://www.cssdeck.com/uploads/media/items/0/0Rs78ic.gif');
+}
+header {
+	width:100%;
+	border-bottom: 2px groove;
+	border-color: #404040;
+	top:0%;
+	position:relative;  
+	font-size:120%;
+	font-family: 'Open Sans', sans-serif;
+
+}
+header h1{
+	font-size: 275%;
+	margin-left:10%;
+	position:relative;
+}
+header h2{
+	font-size:150%;
+	margin-left:20%;
+	margin-top:-1.5%;
+	position:relative;
+}
+info {
+	
+	width:50%;
+	height:30%;
+	position:relative; 
+	font-family: 'Open Sans', sans-serif;
+	display:block;
+	float:left;
+}
+info h2{
+	font-size:150%;
+	margin-left: 20%;
+	margin-top:7%;
+}
+ info p{
+	font-size:110%;
+	margin-left:10%;
+}
+tablecontainer
+{
+	display:block;
+	position:relative;
+	margin-top:-8em;
+	margin-left:-30em;
+	margin-bottom:3em;
+	width:100em;
+	text-align: center;
+}
+.tablecont{
+	position:relative;
+	float:left;
+	width:80em;
+	height:10em;
+	text-align: center;
+	margin-bottom:10em;
+}
+
+tdcontain
+{
+	position:relative;
+	float:left;
+	width:12em;
+	height:6em;
+	border-bottom: 2px groove;
+	border-color: #000000;
+	
+}
+tdcontain p
+{
+	margin-left:-2em;
+	font-size: 1em;
+	margin-left:0em;
+	margin-bottom:0em;
+	margin-top:0em;
+
+}
+}
+
+loverrightsideinfo1{
+	display:block;
+	position:relative;
+	margin-top:0.5%;
+	margin-left:-2.5em;
+	height:12em;
+	width:100%;
+	text-align: center;
+	
+	
+}
+loverrightsideinfoinsideblock{
+	display:inline;
+	position:relative;
+	float:left;
+	margin-top:1em;
+	margin-left:1em;
+	height:10em;
+	width:21em;;
+	text-align: center;
+	
+	
+}
+loverrightsideinfoinsideblock2{
+	display:block;
+	position:relative;
+	float:left;
+	margin-bottom:0em;
+	margin-left:0em;
+	height:5em;
+	width:21em;;
+	text-align: center;
+	
+	
+}
+loverrightsideinfoinsideblock3{
+	display:block;
+	position:relative;
+	float:left;
+	margin-bottom:0em;
+	margin-left:0em;
+	height:5em;
+	width:7em;
+	text-align: center;
+	
+	
+}
+loverrightsideinfoinsideblock4{
+	display:inline;
+	position:relative;
+	float:left;
+	margin-top:1em;
+	margin-left:5em;
+	margin-right:5em;
+	height:10em;
+	width:25em;;
+	text-align: center;
+	
+	
+}
+buttonc1
+{
+	display:inline;
+	position:relative;
+	float:left;
+	margin-top:2.25em;
+	margin-left:3.2em;
+	width:5em;
+}
+buttonc2
+{
+	display:inline;
+	position:relative;
+	float:right;
+	margin-top:2.25em;
+	margin-right:3.2em;
+	width:5em;
+}
+buttond
+{
+	display:inline;
+	position:relative;
+	float:left;
+	margin-top:2em;
+	margin-left:6em;
+	width:20em;
+}
+buttone
+{
+	display:inline;
+	position:relative;
+	float:left;
+	width:10em;
+}
+loverrightsideinfoinsideblock5{
+	display:inline;
+	position:relative;
+	float:left;
+	margin-top:0em;
+	margin-left:0em;
+	margin-right:0em;
+	height:2.5em;
+	width:10.5em;;
+	text-align: center;
+	
+	
+}
+loverrightsideinfoinsideblock6{
+	display:block;
+	position:relative;
+	float:left;
+	margin-bottom:0em;
+	margin-left:0em;
+	height:5em;
+	width:10.5em;
+	text-align: center;
+	
+	
+}
+loverrightsideinfoinsideblock7{
+	display:inline;
+	position:relative;
+	float:left;
+	margin-top:1em;
+	margin-left:4em;
+	height:10em;
+	width:10.5em;
+	text-align: center;
+	
+	
+}
+loverrightsideinfoinsideblock8{
+	display:inline;
+	position:relative;
+	float:left;
+	margin-top:1em;
+	margin-left:1em;
+	height:10em;
+	width:22em;
+	text-align: center;
+	
+	
+}
+loverrightsideinfoinsideblock9{
+	display:inline;
+	position:relative;
+	float:left;
+	margin-top:4em;
+	margin-left:-2em;
+	height:10em;
+	width:15em;;
+	text-align: center;
+	
+	
+}
+loverrightsideinfo2{
+	display:block;
+	position:relative;
+	background-color:#00f000;
+	margin-top:7.5%;
+	margin-left:22%;
+	width:40%;
+	text-align: center;
+	
+}
+prefselector {
+	display:inline;
+	width:20em;
+}
+buttonx {
+	
+	display:inline;
+	position:relative;
+	margin-top:7.5%;
+	margin-left:22%;
+	width:15%;
+	text-align: center;
+}
+buttona {
+	
+	display:inline;
+	position:relative;
+	margin-top:2%;
+	margin-bottom:2%;
+	margin-left:37.25%;
+	text-align:center;
+	width:20%;
+	float:left;
+	text-align: center;
+}
+lgx{
+	display:button;
+	margin-top:10%;
+	margin-left:auto;
+	margin-right:auto;
+	position:relative; 
+	font-family: 'Open Sans', sans-serif;  
+	width:30%;
+	
+}
+lgx h2{
+	font-size:150%;
+}
+lgx p{
+	display:block
+}
+buttons {
+	
+	display:inline;
+	position:relative;
+	margin-top:2%;
+	margin-bottom:2%;
+	margin-left:2%;
+	text-align:center;
+	float:left;
+	text-align: center;
+}
+buttondata {
+	width:10em;
+	display:block;
+	position:relative;
+	margin-top:10%;
+	text-align:center;
+	float:left;
+	text-align: center;
+}
+buttonupdel{
+	width:50%;
+	position:relative;
+	text-align:center;
+	float:left;
+	margin-left:18.5%;
+	text-align: center;
+}
+buttonupdate {
+	
+	display:inline;
+	position:relative;
+	margin-top:10%;
+	margin-bottom:2%;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	text-align: center;
+}
+loginsignupbox {
+	visibility:hidden;
+	position:relative;
+	width:61%;
+	margin-top:5%;
+	margin-left:22%;
+	float:left;
+ 	 font-family: 'Open Sans', sans-serif;
+
+}
+loginsignupbox p {
+	margin-top:9%;
+
+}
+selection {
+	
+	position:relative;
+	width:100%;
+	float:left;
+	font-family: 'Open Sans', sans-serif;
+	
+	
+}
+leftselection {
+	width:15%;
+	float:left;
+	position:relative;
+	margin-left: 2%;
+	margin-right:2%;
+	margin-top:2%;
+	font-family: 'Open Sans', sans-serif;
+	
+}
+rightside{
+	width:65%;
+	height:80%;
+	float:right;
+	position:relative;
+	margin-left: 2%;
+	margin-right:2%;
+	margin-top:2%;
+	font-family: 'Open Sans', sans-serif;
+	font-size:110%;
+	margin-left:10%;
+	
+}
+rightside p{
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+}
+rightside input[type="file"]{
+	margin-top:5%;
+}
+rightside button{
+	margin-top:5%;
+	margin-left:5%;
+	margin-right:5%;
+}
+
+bringdataselection{
+	width:30%;
+	position:relative;
+	float:left;
+	font-size: 100%;
+	font-family: 'Open Sans', sans-serif;
+	display:inline;
+	margin-top:-1em;
+	margin-right:5%;
+
+}
+DefaultAdvanced{
+	width:15%;
+	float:left;
+	position:relative;
+	margin-left: -5%;
+	margin-right:2%;
+	margin-top:2%;
+	font-family: 'Open Sans', sans-serif;
+}
+DefaultAdvancedDetail{
+	width:67%;
+	float:left;
+	position:relative;
+	margin-left: -1%;
+	margin-right:1%;
+	margin-top:3.5%;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 90%;
+}
+roomlecturerdepartmentmiktar{
+	width:47%;
+	height:6em;
+	font-family: 'Open Sans', sans-serif;
+	float:left;
+	margin-left:1%;
+	display:inline;
+	position:relative;
+	
+}
+defaultgenerationsubmit{
+	font-family: 'Open Sans', sans-serif;
+	float:left;
+	display:block;
+	position:relative;
+	left:37.8em;
+	margin-top:1%;
+	margin-left:1%;
+	margin-right:1%;
+	margin-bottom:1%;
+}
+roomtypeinfotaker{
+	width:95%;
+	height:8em;
+	font-family: 'Open Sans', sans-serif;
+	float:left;
+	display:block;
+	position:relative;
+	margin-top:1%;
+	margin-left:1%;
+	margin-right:1%;
+	
+}
+
+table, th, td {
+	margin-left:14.5em;
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-family: 'Open Sans', sans-serif;
+}
+th, td {
+    padding: 20px;
+}
+container
+{
+	margin-left:13.5em;
+	margin-bottom:1em;
+	width:50%;
+	font-family: 'Open Sans', sans-serif;
+	float:left;
+	display:inline;
+	position:relative;
+
+}
+departmentcourseinfotaker{
+	width:95%;
+	font-family: 'Open Sans', sans-serif;
+	font-size:0.8em;
+	float:left;
+	display:block;
+	position:relative;
+	margin-top:1%;
+	margin-left:1%;
+	margin-right:1%;
+	overflow:scroll;
+}
+lgn{
+	width:46.5%;
+	position:relative;
+	margin:1%;
+	float:left;
+
+}
+lgn h2{
+	font-size:150%;
+	margin-left:20%;
+	margin-top:-1.5%;
+	position:relative;
+
+}
+lgn input{
+	margin-top:5%;
+}
+lgnz{
+	width:50%;
+	position:relative;
+	margin-left:2%;
+	float:left;
+	font-family: 'Open Sans', sans-serif;
+}
+lgnx p{
+	margin-top:1%;
+	display:inline;
+}
+lgnx input{
+	margin-top:1%;
+	margin-left:1%;
+	display:inline;
+}
+lgnx{
+	width:29.5%;
+	position:relative;
+	margin-left:2%;
+	float:left;
+	font-family: 'Open Sans', sans-serif;
+
+}
+defaultSettingsHolder{
+	display:block;
+}
+lgnx p{
+	margin-top:7.5%;
+
+}
+lgnx input{
+	margin-top:7.8%;
+}
+.hvr-grow-shadow {
+	background: #3498db;
+	-webkit-border-radius: 1;
+  -moz-border-radius: 1;
+  border-radius: 1px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/* Box Shadow Outset */
+.hvr-box-shadow-outset {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
+}
+.hvr-box-shadow-outset:hover, .hvr-box-shadow-outset:focus, .hvr-box-shadow-outset:active {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+
+.style-4 input[type="text"] {
+  padding: 10px;
+  border: none;
+  display:block;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+}
+.style-4 input[type="text"]:focus,
+.style-4 input[type="text"].focus {
+  border-bottom: solid 2px #969696;
+}
+.style-4 input[type="number"] {
+  padding: 10px;
+  display:block;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+}
+.style-4 input[type="number"]:focus,
+.style-4 input[type="number"].focus {
+  border-bottom: solid 2px #969696;
+}
+.style-4 input[type="password"] {
+  padding: 10px;
+  border: none;
+  display:block;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+}
+.style-4 input[type="password"]:focus,
+.style-4 input[type="password"].focus {
+  border-bottom: solid 2px #969696;
+}
+.style-4 input[type="file"] {
+  padding: 4%;
+  border: none;
+  display:block;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+}
+.style-4 input[type="file"]:focus,
+.style-4 input[type="file"].focus {
+  border-bottom: solid 2px #969696;
+}
+
+.rootpageselection {
+	background: #3498db;
+	-webkit-border-radius: 1;
+  -moz-border-radius: 1;
+  border-radius: 1px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.rootpageselection:hover, .rootpageselection:focus, .rootpageselection:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/* Box Shadow Outset */
+.rootpageselection-outset {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
+}
+.rootpageselection-outset:hover, .rootpageselection-outset:focus, .rootpageselection-outset:active {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+
+lechead {
+	position:relative;
+	display:inline;
+	width:20%;
+	float:left;
+	text-align:center;
+	font-size:120%;
+	font-family: 'Open Sans', sans-serif;
+}
+lecheadx{
+	position:relative;
+	display:inline;
+	width:30%;
+	float:left;
+	text-align:center;
+	font-size:120%;
+	font-family: 'Open Sans', sans-serif;
+}
+lecheadxbuttons{
+	position:relative;
+	display:inline;
+	width:30%;
+	margin-left:10%;
+	float:left;
+	text-align:center;
+	font-size:120%;
+	font-family: 'Open Sans', sans-serif;
+}
+
+

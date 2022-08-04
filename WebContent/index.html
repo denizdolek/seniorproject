@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Timetable Manager</title>
+ <link rel="stylesheet" href="Darkside.css">
+ <script type="text/javascript">
+ 
+ function signup() {
+	 var username=document.getElementById("signupusername").value;
+	 var password=document.getElementById("signuppassword").value;
+	 var name=document.getElementById("signupname").value;
+	 var surname=document.getElementById("signupsurname").value;
+	 var email =document.getElementById("signupemail").value;
+	 var department =document.getElementById("signupdepartment").value;
+     var xmlhttp;
+	
+     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+         xmlhttp = new XMLHttpRequest();
+     } else {    // IE6, IE5
+         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+     }
+     xmlhttp.onreadystatechange = function() {
+         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+         	
+        	 if(xmlhttp.responseText==1){
+        		 
+        		 sessionStorage.username=username;
+        		 sessionStorage.password=password;
+        		 sessionStorage.name=name;
+        		 sessionStorage.authority=0;
+             	window.location="mainpage.html";
+        	 }
+        	 else{
+        		 document.getElementById("loginbox").innerHTML="<p>"+xmlhttp.responseText+"</p>"
+        	 }
+         	
+            
+         }
+     }
+    xmlhttp.open("GET","signupServlet?username="+username+"&password="+password+"&name="+name+"&surname="+surname+"&email="+email+"&department="+department,true);
+    xmlhttp.send(); 
+ }
+ function login() {
+	 var username=document.getElementById("loginusername").value;
+	 var password=document.getElementById("loginpassword").value;
+
+     var xmlhttp;
+	
+     if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+         xmlhttp = new XMLHttpRequest();
+     } else {    // IE6, IE5
+         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+     }
+     xmlhttp.onreadystatechange = function() {
+         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+         	
+        	 if(xmlhttp.responseText==1){
+        		 
+        		 sessionStorage.username=username;
+        		 sessionStorage.password=password;
+        		 sessionStorage.name=name
+        		 sessionStorage.authority=0;
+             	 window.location="mainpage.html";
+        	 }else if(xmlhttp.responseText==2){
+        		 sessionStorage.username=username;
+        		 sessionStorage.password=password;
+        		 sessionStorage.name=name
+        		 sessionStorage.authority=1;
+        		 window.location="rootpage.html";
+        	 }
+        	 else{
+        		 document.getElementById("loginbox").innerHTML="<p>"+xmlhttp.responseText+"</p>"
+        	 }
+         	
+            
+         }
+     }
+    xmlhttp.open("GET","loginServlet?username="+username+"&password="+password,true);
+    xmlhttp.send(); 
+ }
+ function reveallogin(){
+	 document.getElementById("loginbox").style.visibility = "visible";
+	 document.getElementById("loginbox").innerHTML="<lgn>"+
+	 "<p>Username</p>"+
+	 "<p>Password</p>"+
+	 "</lgn>"+
+	 "<lgn class=\"style-4\">"+
+	 "<input type=\"text\" id=\"loginusername\" >"+
+	 "<input type=\"password\" id=\"loginpassword\">"+
+	 "</lgn>"+
+	 "<buttona class=\"hvr-grow-shadow\" onclick=\"login()\">Login</buttona>";
+ }
+ function revealsignup(){
+	 document.getElementById("loginbox").style.visibility = "visible";
+	 document.getElementById("loginbox").innerHTML="<lgn>"+
+	 "<p>Username</p>"+
+	 "<p>Password</p>"+
+	 "<p>Name</p>"+
+	 "<p>Surname</p>"+
+	 "<p>Email</p>"+
+	 "<p>Department</p>"+
+	 "</lgn>"+
+	 "<lgn class=\"style-4\">"+
+	 "<input type=\"text\" id=\"signupusername\" >"+
+	 "<input type=\"password\" id=\"signuppassword\">"+
+	 "<input type=\"text\" id=\"signupname\" >"+
+	 "<input type=\"text\" id=\"signupsurname\" >"+
+	 "<input type=\"text\" id=\"signupemail\" >"+
+	 "<input type=\"text\" id=\"signupdepartment\" >"+
+	 "</lgn>"+
+	 "<buttona class=\"hvr-grow-shadow\" onclick=\"signup()\">Sign Up</buttona>";
+ }
+
+ </script>
+</head>
+<body>
+
+<header>
+<h1>TIMETABLE MANAGER</h1><h2>Fast & Easy Way to Generate Timetable </h2>
+</header>
+	<info>
+		<h2>Why Timetable Manager ?</h2>
+		<p>Timetable Manager is an effective program to solve the problem named "Lecture Timetabling Problem". To solve this problem, our program uses an effective genetic algorithm. </p>
+		<p></p>
+	</info>
+	<info>
+		<buttonx class="hvr-grow-shadow" onclick="reveallogin()">Login</buttonx>
+		<buttonx class="hvr-grow-shadow" onclick="revealsignup()">Sign Up</buttonx>
+		<loginsignupbox id="loginbox">
+			
+		</loginsignupbox>
+		
+	</info>
+</body>
+</html>
